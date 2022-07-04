@@ -1,5 +1,5 @@
 {
-  "name": "vue-plyr",
+  "name": "@rusinas/vue-plyr-ci",
   "version": "7.0.0",
   "description": "A vue component for the plyr video & audio player.",
   "license": "MIT",
@@ -11,12 +11,12 @@
   "repository": "github:redxtech/vue-plyr",
   "scripts": {
     "prebuild": "rm -rf dist/",
-    "build": "NODE_ENV=production rollup --c rollup.config.js",
-    "build:es": "NODE_ENV=production rollup --c rollup.config.js --format=es",
-    "build:es:watch": "NODE_ENV=production rollup --c rollup.config.js --format=es --watch",
-    "build:cjs": "NODE_ENV=production rollup --c rollup.config.js --format=cjs",
-    "build:cjs:watch": "NODE_ENV=production rollup --c rollup.config.js --format=cjs --watch",
-    "build:iife": "NODE_ENV=production rollup --c rollup.config.js --format=iife",
+    "build": "cross-env NODE_ENV=production rollup --c rollup.config.js",
+    "build:es": "cross-env NODE_ENV=production rollup --c rollup.config.js --format=es",
+    "build:es:watch": "cross-env NODE_ENV=production rollup --c rollup.config.js --format=es --watch",
+    "build:cjs": "cross-env NODE_ENV=production rollup --c rollup.config.js --format=cjs",
+    "build:cjs:watch": "cross-env NODE_ENV=production rollup --c rollup.config.js --format=cjs --watch",
+    "build:iife": "cross-env NODE_ENV=production rollup --c rollup.config.js --format=iife",
     "build:iife:watch": "NODE_ENV=production rollup --c rollup.config.js --format=iife --watch",
     "lint": "vue-cli-service lint -f pretty"
   },
@@ -28,10 +28,6 @@
     "dist/*",
     "src/**/*.vue"
   ],
-  "dependencies": {
-    "plyr": "github:sampotts/plyr#develop",
-    "vue": "^2.6.12"
-  },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@rollup/plugin-babel": "^5.2.1",
@@ -45,6 +41,7 @@
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "eslint": "^7.12.1",
     "eslint-formatter-pretty": "^4.0.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -58,7 +55,12 @@
     "rollup-plugin-vue": "^6.0.0-beta.11",
     "vue-template-compiler": "^2.6.12"
   },
+  "peerDependencies": {
+    "vue": "^2.6.12",
+    "plyr": "^3.7.0"
+  },
   "keywords": [
+    "ci",
     "vue-plyr",
     "vue",
     "plyr",
